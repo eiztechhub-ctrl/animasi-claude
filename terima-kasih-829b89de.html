@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Terima kasih — /animasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',system-ui,sans-serif;color:#f5f2eb;min-height:100vh;display:grid;place-items:center;padding:28px 18px;
+  background:radial-gradient(900px 500px at 85% -10%,rgba(255,169,77,.2),transparent 60%),linear-gradient(180deg,#0d0f1f,#1a1330);line-height:1.6}
+.card{max-width:560px;width:100%;background:#141327;border:1.5px solid rgba(255,255,255,.12);border-radius:28px;padding:38px 28px;text-align:center}
+.tick{width:76px;height:76px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;background:linear-gradient(135deg,#ffc94d,#ffa94d);box-shadow:0 14px 40px rgba(255,180,70,.35)}
+.tick svg{width:40px;height:40px}
+h1{font:800 clamp(26px,6vw,34px)/1.15 'Montserrat',sans-serif;margin-bottom:8px}
+.gold{color:#ffc94d}
+p{color:#a9adc3}
+.btn{display:inline-flex;gap:10px;align-items:center;margin:24px 0 8px;background:linear-gradient(135deg,#ffc94d,#ffa94d);color:#14121c;font:700 17px/1 'Poppins';padding:18px 30px;border-radius:999px;text-decoration:none}
+ol{text-align:left;margin:22px auto 0;max-width:420px;display:grid;gap:10px;padding-left:20px;color:#f5f2eb;font-size:15px}
+.small{font-size:13px;margin-top:22px}
+.fail{display:none}
+.is-fail .ok{display:none}.is-fail .fail{display:block}
+</style>
+</head>
+<body>
+<div class="card" id="kad">
+  <div class="ok">
+    <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#14121c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+    <h1>Terima kasih! <span class="gold">Pembayaran berjaya.</span></h1>
+    <p>Ebook dan skill /animasi anda sedia untuk dimuat turun.</p>
+    <a class="btn" href="__LINK_FAIL__" target="_blank" rel="noopener">Muat turun fail anda →</a>
+    <ol>
+      <li>Muat turun <b>PDF ebook</b> dan fail <b>animasi.zip</b>.</li>
+      <li>Buka ebook dan ikut panduan untuk upload skill ke Claude.</li>
+      <li>Taip <b>/animasi buatkan …</b> dan buat video pertama anda.</li>
+    </ol>
+    <p class="small">Simpan halaman ini (bookmark). Resit pembayaran juga dihantar ke emel anda oleh ToyyibPay.</p>
+  </div>
+  <div class="fail">
+    <h1>Pembayaran <span class="gold">tidak berjaya</span></h1>
+    <p>Tiada caj dikenakan. Sila cuba semula.</p>
+    <a class="btn" href="./">Kembali ke halaman utama →</a>
+  </div>
+</div>
+<script>
+(function(){
+  var s=new URLSearchParams(location.search).get('status_id');
+  if(s && s!=='1'){document.getElementById('kad').classList.add('is-fail');}
+})();
+</script>
+</body>
+</html>
