@@ -64,13 +64,20 @@
 .anm .anm-who{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .anm .anm-step.anm-ai .anm-who{color:var(--gold)}
 /* ---------- gaya ---------- */
-.anm .anm-styles{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:40px}
-.anm .anm-style{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:12px;transition:transform .25s,border-color .25s}
-.anm .anm-style:hover{transform:translateY(-6px) rotate(-.6deg);border-color:rgba(255,201,77,.6)}
-.anm .anm-style img{border-radius:14px;aspect-ratio:9/16;object-fit:cover;width:100%}
-.anm .anm-style b{display:block;font:800 13px/1 'Montserrat';color:var(--gold);margin:12px 4px 4px;letter-spacing:.04em}
-.anm .anm-style strong{display:block;font:700 15px/1.25 'Montserrat';margin:0 4px 6px}
-.anm .anm-style small{display:block;color:var(--muted);font-size:12.5px;line-height:1.45;margin:0 4px 4px}
+.anm .anm-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:46px;text-align:left}
+.anm .anm-vcard{position:relative;border-radius:30px;padding:10px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1.5px solid var(--line);transition:transform .3s,border-color .3s,box-shadow .3s}
+.anm .anm-vcard:hover{transform:translateY(-8px);border-color:rgba(255,201,77,.65);box-shadow:0 26px 60px rgba(0,0,0,.45),0 0 0 1px rgba(255,201,77,.25)}
+.anm .anm-vframe{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:9/16;background:#05060c}
+.anm .anm-vframe video,.anm .anm-vframe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.anm .anm-vframe:after{content:'';position:absolute;inset:0;border-radius:22px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);pointer-events:none}
+.anm .anm-vtag{position:absolute;top:14px;left:14px;z-index:2;font:800 12px/1 'Montserrat';letter-spacing:.08em;color:var(--ink);background:var(--gold);padding:8px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.anm .anm-vlive{position:absolute;top:14px;right:14px;z-index:2;display:flex;align-items:center;gap:7px;font:600 11px/1 'Poppins';color:#fff;background:rgba(10,10,20,.55);backdrop-filter:blur(6px);padding:7px 11px;border-radius:999px}
+.anm .anm-vlive i{width:7px;height:7px;border-radius:50%;background:#ff5a5a;box-shadow:0 0 0 0 rgba(255,90,90,.7);animation:anm-pulse 1.6s infinite}
+@keyframes anm-pulse{0%{box-shadow:0 0 0 0 rgba(255,90,90,.7)}70%{box-shadow:0 0 0 8px rgba(255,90,90,0)}100%{box-shadow:0 0 0 0 rgba(255,90,90,0)}}
+.anm .anm-vinfo{padding:18px 10px 10px}
+.anm .anm-vinfo strong{display:block;font:800 21px/1.2 'Montserrat';margin-bottom:6px}
+.anm .anm-vinfo small{display:block;color:var(--muted);font-size:14.5px;line-height:1.5}
+.anm .anm-swipe{display:none;color:var(--muted);font-size:13px;margin-top:14px}
 /* ---------- dapat ---------- */
 .anm .anm-get{display:grid;grid-template-columns:.9fr 1.1fr;gap:46px;align-items:center}
 .anm .anm-book{border-radius:20px;box-shadow:0 30px 70px rgba(0,0,0,.55);transform:perspective(900px) rotateY(10deg) rotateX(3deg);border:1px solid var(--line)}
@@ -112,14 +119,18 @@
   .anm .anm-phones{height:430px;max-width:420px;margin:0 auto}
   .anm .anm-phone{width:170px}.anm .anm-p2{width:190px}
   .anm .anm-steps{grid-template-columns:1fr 1fr}
-  .anm .anm-styles{grid-template-columns:repeat(3,1fr)}
+  .anm .anm-gallery{grid-template-columns:1fr 1fr;gap:22px}
   .anm .anm-get{grid-template-columns:1fr}
   .anm .anm-book{transform:none}
   .anm .anm-sec{padding:64px 0}
 }
 @media (max-width:520px){
   .anm .anm-steps{grid-template-columns:1fr}
-  .anm .anm-styles{grid-template-columns:1fr 1fr}
+  .anm .anm-gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:36px -22px 0;padding:0 22px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .anm .anm-gallery::-webkit-scrollbar{display:none}
+  .anm .anm-vcard{flex:0 0 80%;scroll-snap-align:center}
+  .anm .anm-vcard:hover{transform:none}
+  .anm .anm-swipe{display:block}
   .anm .anm-phones{height:360px}
   .anm .anm-phone{width:140px;padding:7px;border-radius:26px}.anm .anm-p2{width:160px}
   .anm .anm-phone img{border-radius:20px}
@@ -175,15 +186,16 @@
   <div class="anm-wrap anm-sec anm-center" style="padding-top:20px">
     <span class="anm-kicker">5 gaya, 6 rupa</span>
     <h2>Pilih gaya ikut <span class="anm-gold">cerita</span> anda</h2>
-    <p class="anm-lead">Gambar di bawah ialah frame sebenar yang dihasilkan oleh skill ini.</p>
-    <div class="anm-styles" style="text-align:left">
-      <div class="anm-style"><img src="https://platform-bcl.bsb-cdn.com/media/2026/11/inline-image-DcEQ9HAz-6afb3cea69932.webp" alt="gaya-1 Low-poly Night"><b>GAYA-1</b><strong>Low-poly Night</strong><small>Misteri, seram ringan, kisah malam</small></div>
-      <div class="anm-style"><img src="https://platform-bcl.bsb-cdn.com/media/2026/11/inline-image-Y7NlNMEH-6afb3ceac9f6e.webp" alt="gaya-2 Gaya Utama siang"><b>GAYA-2</b><strong>Gaya Utama · siang</strong><small>Cerita harian, lawak, kampung</small></div>
-      <div class="anm-style"><img src="https://platform-bcl.bsb-cdn.com/media/2026/11/inline-image-VKCAGM2L-6afb3ceb220c7.webp" alt="gaya-2 Gaya Utama malam"><b>GAYA-2</b><strong>Gaya Utama · malam</strong><small>Misteri yang masih comel</small></div>
-      <div class="anm-style"><img src="https://platform-bcl.bsb-cdn.com/media/2026/11/inline-image-pQAAmhBP-6afb3cea10b51.webp" alt="gaya-3 Stick Figure"><b>GAYA-3</b><strong>Stick Figure</strong><small>Fakta lucu, explainer "bagaimana kalau"</small></div>
-      <div class="anm-style"><img src="https://platform-bcl.bsb-cdn.com/media/2026/11/inline-image-lfwCqnTF-6afb3ce9b725a.webp" alt="gaya-4 Kartun Explainer 3D"><b>GAYA-4</b><strong>Kartun Explainer 3D</strong><small>Sains, "boleh ke X tahan Y?"</small></div>
-      <div class="anm-style"><img src="https://platform-bcl.bsb-cdn.com/media/2026/11/inline-image-z8R6cEw1-6afb3ce944cb9.webp" alt="gaya-5 Stick Figure Sinematik"><b>GAYA-5</b><strong>Stick Figure Sinematik</strong><small>Kisah moral, sejarah, "3 punca"</small></div>
+    <p class="anm-lead">Klip di bawah ialah video sebenar yang dihasilkan oleh skill ini.</p>
+    <div class="anm-gallery">
+      <div class="anm-vcard"><div class="anm-vframe"><video src="video/gaya-1.mp4" poster="video/gaya-1.webp" muted loop playsinline preload="none" aria-label="Contoh video GAYA-1 Low-poly Night"></video><span class="anm-vtag">GAYA-1</span><span class="anm-vlive"><i></i>Contoh sebenar</span></div><div class="anm-vinfo"><strong>Low-poly Night</strong><small>Misteri, seram ringan, kisah malam</small></div></div>
+      <div class="anm-vcard"><div class="anm-vframe"><video src="video/gaya-2-siang.mp4" poster="video/gaya-2-siang.webp" muted loop playsinline preload="none" aria-label="Contoh video GAYA-2 Gaya Utama · siang"></video><span class="anm-vtag">GAYA-2</span><span class="anm-vlive"><i></i>Contoh sebenar</span></div><div class="anm-vinfo"><strong>Gaya Utama · siang</strong><small>Cerita harian, lawak, kampung</small></div></div>
+      <div class="anm-vcard"><div class="anm-vframe"><video src="video/gaya-2-malam.mp4" poster="video/gaya-2-malam.webp" muted loop playsinline preload="none" aria-label="Contoh video GAYA-2 Gaya Utama · malam"></video><span class="anm-vtag">GAYA-2</span><span class="anm-vlive"><i></i>Contoh sebenar</span></div><div class="anm-vinfo"><strong>Gaya Utama · malam</strong><small>Misteri yang masih comel</small></div></div>
+      <div class="anm-vcard"><div class="anm-vframe"><video src="video/gaya-3.mp4" poster="video/gaya-3.webp" muted loop playsinline preload="none" aria-label="Contoh video GAYA-3 Stick Figure"></video><span class="anm-vtag">GAYA-3</span><span class="anm-vlive"><i></i>Contoh sebenar</span></div><div class="anm-vinfo"><strong>Stick Figure</strong><small>Fakta lucu, explainer "bagaimana kalau"</small></div></div>
+      <div class="anm-vcard"><div class="anm-vframe"><video src="video/gaya-4.mp4" poster="video/gaya-4.webp" muted loop playsinline preload="none" aria-label="Contoh video GAYA-4 Kartun Explainer 3D"></video><span class="anm-vtag">GAYA-4</span><span class="anm-vlive"><i></i>Contoh sebenar</span></div><div class="anm-vinfo"><strong>Kartun Explainer 3D</strong><small>Sains, "boleh ke X tahan Y?"</small></div></div>
+      <div class="anm-vcard"><div class="anm-vframe"><video src="video/gaya-5.mp4" poster="video/gaya-5.webp" muted loop playsinline preload="none" aria-label="Contoh video GAYA-5 Stick Figure Sinematik"></video><span class="anm-vtag">GAYA-5</span><span class="anm-vlive"><i></i>Contoh sebenar</span></div><div class="anm-vinfo"><strong>Stick Figure Sinematik</strong><small>Kisah moral, sejarah, "3 punca"</small></div></div>
     </div>
+    <p class="anm-swipe">← Leret untuk lihat semua gaya →</p>
   </div>
 
   
@@ -247,5 +259,14 @@
   </div>
   <div class="anm-foot anm-wrap">Produk bebas. Tidak bergabung dengan, ditaja atau disokong oleh Anthropic atau ElevenLabs. Claude ialah tanda dagangan Anthropic.</div>
 </div>
+<script>
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('.anm-gallery video'));
+  function play(v){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  if(!('IntersectionObserver' in window)){vids.forEach(play);return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)play(e.target);else e.target.pause();});},{threshold:.35});
+  vids.forEach(function(v){v.muted=true;io.observe(v);});
+})();
+</script>
 </body>
 </html>
