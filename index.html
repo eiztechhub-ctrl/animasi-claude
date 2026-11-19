@@ -1,220 +1,367 @@
-<style>.anm{--bg:#0d0f1f;--gold:#ffc94d;--gold2:#ffa94d;--ink:#14121c;--w:#f5f2eb;--mut:#a9adc3;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.14);
-font-family:'Poppins',system-ui,sans-serif;color:var(--w);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
-background:radial-gradient(1100px 600px at 85% -5%,rgba(255,169,77,.2),transparent 60%),radial-gradient(900px 600px at -10% 30%,rgba(120,90,255,.16),transparent 60%),#0d0f1f}
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,500&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"><style>@font-face{font-family:'Montserrat Local';src:url(https://animasiclaude.xyz/fonts/montserrat-700.woff2) format('woff2');font-weight:600 900;font-display:swap}
+.anm{--gold:#ffc94d;--gold2:#ffa94d;--ink:#14121c;--w:#f5f2eb;--mut:#a9adc3;--card:rgba(255,255,255,.055);--line:rgba(255,255,255,.13);
+--hd:'Montserrat','Montserrat Local','Arial Black',Arial,sans-serif;--sf:'Lora',Georgia,serif;
+font-family:Arial,Helvetica,sans-serif;color:var(--w);line-height:1.6;position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;
+background:radial-gradient(1200px 640px at 88% -8%,rgba(255,169,77,.22),transparent 60%),radial-gradient(1000px 700px at -12% 34%,rgba(124,92,255,.2),transparent 60%),linear-gradient(180deg,#0d0f1f,#151029 50%,#0d0f1f)}
 .anm *{box-sizing:border-box;margin:0;padding:0}
 .anm a{color:inherit;text-decoration:none}
-.anm .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
-.anm h1,.anm h2,.anm h3{font-family:'Poppins',sans-serif;line-height:1.1;letter-spacing:-.01em}
-.anm em{font-style:normal;color:var(--gold)}
+.anm .stars{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(1.4px 1.4px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 140px 80px,#fff,transparent),radial-gradient(1.6px 1.6px at 260px 170px,#ffe7b0,transparent),radial-gradient(1px 1px at 370px 50px,#fff,transparent),radial-gradient(1.2px 1.2px at 90px 220px,#fff,transparent),radial-gradient(1px 1px at 330px 260px,#cfd6ff,transparent);background-size:420px 300px;animation:tw 6s ease-in-out infinite alternate}
+@keyframes tw{to{opacity:.25}}
+.anm .aur{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:.35}
+.anm .a1{width:520px;height:520px;background:#ff9f43;top:1800px;right:-200px;animation:dr 18s ease-in-out infinite alternate}
+.anm .a2{width:600px;height:600px;background:#7b5cff;top:3600px;left:-260px;animation:dr 22s ease-in-out infinite alternate-reverse}
+@keyframes dr{to{transform:translate(-80px,120px) scale(1.15)}}
+.anm .wrap{position:relative;max-width:1160px;margin:0 auto;padding:0 22px}
+.anm h1,.anm h2,.anm h3,.anm strong{font-family:var(--hd);font-weight:800;line-height:1.08;letter-spacing:-.015em}
+.anm .g{color:var(--gold)}
 .anm .c{text-align:center}
-.anm .sm{font-size:13px}
-.anm .mut{color:var(--mut);font-size:14px;margin-top:14px}
-.anm .lead{font-family:'Lora',serif;font-style:italic;color:var(--mut);font-size:clamp(17px,2.2vw,20px);margin-top:14px}
-.anm .kick{display:inline-block;font:700 12px/1 'Poppins';letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:9px 14px;border-radius:999px}
-.anm .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);font:700 17px/1 'Poppins';padding:17px 28px;border-radius:999px;box-shadow:0 12px 36px rgba(255,170,70,.35);transition:.2s}
-.anm .btn:hover{transform:translateY(-3px);box-shadow:0 18px 46px rgba(255,170,70,.5)}
-.anm .btn.sm{padding:11px 18px;font-size:14px}
-.anm .btn.ghost{background:transparent;color:var(--w);border:1.5px solid var(--line);box-shadow:none}
-.anm .bar{background:var(--gold);color:var(--ink);text-align:center;font-size:13.5px;padding:9px 14px;font-weight:600}
-.anm .bar a{text-decoration:underline}
-.anm .hd{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(13,15,31,.72);border-bottom:1px solid var(--line)}
-.anm .hdi{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.anm .logo b{font:800 20px 'Poppins';color:var(--gold)}
-.anm .logo span{font-size:12px;color:var(--mut);margin-left:8px}
-.anm nav{display:flex;gap:26px;font-size:14px;font-weight:600;color:var(--mut)}
-.anm nav a:hover{color:var(--w)}
-.anm .hero{display:grid;grid-template-columns:1.02fr .98fr;gap:30px;align-items:center;padding:64px 22px 40px}
-.anm .hero h1{font-size:clamp(42px,7vw,80px);margin:22px 0 16px}
-.anm .cmd{display:inline-block;font:600 clamp(13px,1.7vw,16px)/1.4 'Poppins';border:1.5px solid rgba(255,201,77,.5);background:rgba(255,255,255,.05);padding:12px 16px;border-radius:14px;margin:22px 0}
-.anm .cmd span{color:var(--gold);font-weight:700}
+.anm .lead{font-family:var(--sf);font-style:italic;font-weight:500;color:var(--mut);font-size:clamp(17px,2.1vw,20px);line-height:1.6;margin-top:12px}
+.anm .c .lead{max-width:640px;margin-left:auto;margin-right:auto}
+.anm .note{color:var(--mut);font-size:13px;margin-top:16px;line-height:1.55}
+.anm .kick{display:inline-block;font:700 12px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:9px 15px;border-radius:999px;box-shadow:0 6px 22px rgba(255,190,80,.3)}
+.anm h2{font-size:clamp(30px,4.6vw,50px);margin:18px 0 6px}
+.anm code{font:700 .9em Arial,sans-serif;color:var(--gold)}
+/* buttons */
+.anm .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);font:700 17px/1 Arial,sans-serif;padding:18px 30px;border-radius:999px;box-shadow:0 14px 40px rgba(255,170,70,.38);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.anm .btn:after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:sh 3.4s ease-in-out infinite}
+@keyframes sh{0%,60%{left:-60%}100%{left:130%}}
+.anm .btn:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(255,170,70,.55)}
+.anm .btn svg{width:19px;height:19px}
+.anm .btn.sm{padding:11px 20px;font-size:14px}
+.anm .btn.ghost{background:rgba(255,255,255,.05);color:var(--w);border:1.5px solid var(--line);box-shadow:none}
+.anm .btn.ghost:after,.anm .btn.sm:after{display:none}
+.anm .btn.xl{font-size:19px;padding:21px 36px}
+/* bar + header */
+.anm .bar{position:relative;background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--ink);text-align:center;font-size:14px;padding:9px 14px}
+.anm .bar a{text-decoration:underline;font-weight:700}
+.anm .pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:#d6362f;margin-right:9px;vertical-align:1px;animation:pu 1.6s infinite}
+@keyframes pu{0%{box-shadow:0 0 0 0 rgba(214,54,47,.6)}70%{box-shadow:0 0 0 8px rgba(214,54,47,0)}100%{box-shadow:0 0 0 0 rgba(214,54,47,0)}}
+.anm .hd{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(13,15,31,.7);border-bottom:1px solid var(--line)}
+.anm .hdi{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.anm .logo{font:900 22px var(--hd);color:var(--gold);letter-spacing:-.02em}
+.anm .logo span{font:400 12px Arial,sans-serif;color:var(--mut);margin-left:10px;letter-spacing:0}
+.anm nav{display:flex;gap:28px;font-size:14px;font-weight:700;color:var(--mut)}
+.anm nav a:hover{color:var(--gold)}
+/* hero */
+.anm .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding:72px 22px 70px}
+.anm .hero h1{font-size:clamp(44px,6.8vw,84px);font-weight:900;margin:22px 0 4px}
+.anm .cmd{display:flex;align-items:center;gap:8px;max-width:560px;font:700 clamp(15px,1.8vw,18px)/1.3 Arial,sans-serif;background:rgba(8,9,20,.6);border:1.5px solid rgba(255,201,77,.55);border-radius:16px;padding:16px 18px;margin:26px 0 20px;box-shadow:0 0 0 6px rgba(255,201,77,.06),0 20px 50px rgba(0,0,0,.35);min-height:58px}
+.anm .cmd .c1{color:var(--gold);font-family:var(--hd);font-weight:800}
+.anm .cmd .type{color:var(--w);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.anm .caret{flex:none;width:2px;height:1.2em;background:var(--gold);animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.anm .chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:26px}
+.anm .chips span{font-size:13.5px;font-weight:700;border:1.5px solid var(--line);background:var(--card);padding:8px 14px;border-radius:999px}
+.anm .pm{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.anm .pm b{font:900 52px/1 var(--hd);color:var(--gold);text-shadow:0 8px 30px rgba(255,180,70,.35)}
+.anm .pm s{color:var(--mut);font-size:20px}
+.anm .pm span{font-weight:700;font-size:15px}
 .anm .cta{display:flex;gap:12px;flex-wrap:wrap}
 .anm .hp{position:relative;height:600px}
-.anm .glow{position:absolute;inset:12% 8%;background:radial-gradient(circle,rgba(255,170,80,.45),transparent 65%);filter:blur(40px)}
-.anm .ph{position:absolute;width:210px;aspect-ratio:9/16;border-radius:30px;padding:8px;background:#111218;box-shadow:0 30px 70px rgba(0,0,0,.6),inset 0 0 0 2px rgba(255,255,255,.12);animation:fl 6s ease-in-out infinite}
-.anm .ph video{width:100%;height:100%;object-fit:cover;border-radius:23px;display:block;background:#000}
-.anm .ph1{left:0;top:90px;rotate:-10deg}
-.anm .ph2{left:21%;top:20px;rotate:-4deg;animation-delay:.6s;z-index:2}
-.anm .ph3{left:41%;top:-6px;width:236px;z-index:4;animation-delay:1.2s}
-.anm .ph4{right:21%;top:44px;rotate:5deg;animation-delay:1.8s;z-index:3}
-.anm .ph5{right:0;top:110px;rotate:11deg;animation-delay:2.4s}
-@keyframes fl{0%,100%{translate:0 0}50%{translate:0 -14px}}
-.anm .tick{overflow:hidden;border-block:1px solid var(--line);background:rgba(255,255,255,.03);padding:16px 0}
-.anm .tk{display:flex;gap:42px;width:max-content;animation:mq 60s linear infinite;font:700 22px 'Poppins';white-space:nowrap}
-.anm .tk span{color:var(--mut)}
-.anm .tk b{color:var(--gold);margin-right:6px}
+.anm .glow{position:absolute;inset:8% 4%;background:radial-gradient(circle,rgba(255,170,80,.5),transparent 65%);filter:blur(42px)}
+.anm .ph{position:absolute;width:236px;border-radius:36px;padding:10px;background:linear-gradient(160deg,#22232c,#0c0d12);box-shadow:0 34px 80px rgba(0,0,0,.65),inset 0 0 0 2px rgba(255,255,255,.12)}
+.anm .ph:before{content:'';position:absolute;top:19px;left:50%;transform:translateX(-50%);width:72px;height:18px;border-radius:12px;background:#07070b;z-index:3}
+.anm .ph .scr{position:relative;aspect-ratio:9/16;border-radius:27px;overflow:hidden;background:#05060c}
+.anm .ph video,.anm .vf video,.anm .wc video,.anm .mini video,.anm .fp video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.anm .ph1{left:0;top:84px;rotate:-9deg;animation:fl 6s ease-in-out infinite}
+.anm .ph2{left:50%;top:0;margin-left:-130px;width:260px;z-index:4;animation:fl 6s ease-in-out infinite .8s}
+.anm .ph3{right:0;top:84px;rotate:9deg;animation:fl 6s ease-in-out infinite 1.6s}
+@keyframes fl{0%,100%{translate:0 0}50%{translate:0 -16px}}
+.anm .tag{position:absolute;z-index:2;top:12px;left:12px;font:800 11px/1 var(--hd);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:7px 10px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.anm .ph .tag{top:auto;bottom:14px;left:14px}
+.anm .live{position:absolute;z-index:2;top:12px;right:12px;display:flex;align-items:center;gap:6px;font:700 10.5px/1 Arial,sans-serif;color:#fff;background:rgba(10,10,20,.55);backdrop-filter:blur(6px);padding:6px 9px;border-radius:999px}
+.anm .ph .live{top:44px}
+.anm .live i{width:7px;height:7px;border-radius:50%;background:#ff5a5a;animation:pu 1.6s infinite}
+.anm .stk{position:absolute;z-index:6;font:800 14px/1 var(--hd);padding:11px 15px;border-radius:14px;box-shadow:0 14px 36px rgba(0,0,0,.45);white-space:nowrap}
+.anm .s1{top:24px;left:2%;background:var(--gold);color:var(--ink);rotate:-6deg;animation:fl 5s ease-in-out infinite .3s}
+.anm .s2{bottom:70px;left:-4%;background:#fff;color:var(--ink);rotate:4deg;animation:fl 5.5s ease-in-out infinite 1s}
+.anm .s3{top:150px;right:-3%;background:#7b5cff;color:#fff;rotate:7deg;animation:fl 6s ease-in-out infinite 1.8s}
+/* strip */
+.anm .strip{position:relative;border-block:1px solid var(--line);background:rgba(255,255,255,.03);overflow:hidden;white-space:nowrap}
+.anm .si{display:inline-flex;gap:48px;padding:19px 0;animation:mq 34s linear infinite;font:800 16px/1 var(--hd);letter-spacing:.08em;text-transform:uppercase}
+.anm .si span:nth-child(odd){color:var(--gold)}
+.anm .si span:before{content:'✦';color:rgba(255,201,77,.5);margin-right:48px}
 @keyframes mq{to{transform:translateX(-50%)}}
-.anm .sec{padding:84px 22px 0}
-.anm h2{font-size:clamp(30px,4.6vw,46px);margin:16px 0 8px}
-.anm .vs{display:grid;grid-template-columns:1fr auto 1fr;gap:26px;align-items:center;margin-top:38px}
-.anm .bad,.anm .good{border:1.5px solid var(--line);border-radius:22px;padding:26px;background:var(--card)}
-.anm .good{border-color:rgba(255,201,77,.6);background:rgba(255,201,77,.07)}
-.anm .vs h3{font-size:22px;margin-bottom:12px}
-.anm .vs ul{list-style:none;display:grid;gap:11px;font-size:15px}
-.anm .bad li:before{content:"✕";color:#ff7b7b;font-weight:800;margin-right:10px}
-.anm .good li:before{content:"✓";color:var(--gold);font-weight:800;margin-right:10px}
-.anm .mid{display:grid;grid-template-columns:repeat(3,92px);gap:8px}
-.anm .mini{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 10px 26px rgba(0,0,0,.5)}
-.anm .mini video{width:100%;height:100%;object-fit:cover;display:block}
-.anm .mini i{position:absolute;left:5px;bottom:5px;font:700 10px 'Poppins';background:rgba(0,0,0,.65);padding:2px 6px;border-radius:6px;font-style:normal}
-.anm .uses{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-.anm .use{border:1.5px solid var(--line);background:var(--card);border-radius:20px;padding:24px;transition:.2s}
-.anm .use:hover{transform:translateY(-4px);border-color:rgba(255,201,77,.6)}
-.anm .use em{font-size:30px}
-.anm .use h3{font-size:18px;margin:10px 0 6px}
-.anm .use p{color:var(--mut);font-size:14.5px}
-.anm .steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-.anm .steps li{border:1.5px solid var(--line);background:var(--card);border-radius:20px;padding:26px}
-.anm .steps b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--ink);font:800 18px 'Poppins'}
-.anm .steps h3{margin:14px 0 6px;font-size:20px}
-.anm .steps p{color:var(--mut);font-size:14.5px}
-.anm code{font:600 .88em 'Poppins';color:var(--gold);background:rgba(255,201,77,.1);padding:2px 7px;border-radius:7px}
-.anm .two{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;margin-top:34px;align-items:stretch}
-.anm .tb{width:100%;border-collapse:collapse;border:1.5px solid var(--line);border-radius:20px;overflow:hidden;background:var(--card);font-size:15px}
-.anm .tb th{text-align:left;background:rgba(255,255,255,.07);padding:14px 18px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
-.anm .tb td{padding:15px 18px;border-top:1px solid var(--line)}
-.anm .tb .g{color:var(--gold)}
-.anm .price{border-radius:24px;padding:28px;background:linear-gradient(160deg,rgba(255,201,77,.2),rgba(255,169,77,.06));border:2px solid rgba(255,201,77,.7);display:flex;flex-direction:column;gap:14px;align-items:flex-start}
-.anm .kick.dk{background:var(--ink);color:var(--gold)}
-.anm .pr{display:flex;align-items:baseline;gap:14px}
-.anm .pr b{font:800 64px/1 'Poppins';color:var(--gold)}
-.anm .pr s{color:var(--mut);font-size:22px}
-.anm .price small{color:var(--mut);font-size:12.5px}
-.anm .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:30px 0 24px}
-.anm .f{font:600 14px 'Poppins';color:var(--w);background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:10px 18px;cursor:pointer;transition:.15s}
-.anm .f:hover{border-color:var(--gold)}
-.anm .f.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
-.anm .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
-.anm .card{min-width:0;border:1.5px solid var(--line);background:var(--card);border-radius:20px;padding:12px 12px 16px;transition:.2s}
-.anm .card:hover{transform:translateY(-5px);border-color:rgba(255,201,77,.7)}
-.anm .card.hide{display:none}
-.anm .scr{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#000}
-.anm .scr video{width:100%;height:100%;object-fit:cover;display:block}
-.anm .no{position:absolute;top:8px;left:8px;font:700 11px 'Poppins';background:var(--gold);color:var(--ink);padding:4px 9px;border-radius:999px}
-.anm .card h3{font-size:16px;margin:12px 4px 4px}
-.anm .card p{font-size:13px;color:var(--mut);margin:0 4px 8px}
-.anm .card code{display:block;margin:0 4px;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.anm .faq{max-width:780px;margin:30px auto 0;display:grid;gap:12px}
-.anm details{border:1.5px solid var(--line);background:var(--card);border-radius:16px;padding:0 20px}
-.anm summary{cursor:pointer;list-style:none;font:700 16px 'Poppins';padding:18px 0;display:flex;justify-content:space-between;gap:12px}
-.anm summary:after{content:"+";color:var(--gold);font-size:22px;line-height:1}
-.anm details[open] summary:after{content:"–"}
-.anm details p{color:var(--mut);font-size:15px;padding-bottom:18px}
-.anm .fin{padding-bottom:70px}
-.anm .finb{margin-top:20px;text-align:center;border-radius:30px;padding:56px 24px;background:radial-gradient(600px 300px at 50% 0,rgba(255,201,77,.3),transparent 70%),var(--card);border:1.5px solid rgba(255,201,77,.5)}
-.anm .finb .btn{margin-top:26px}
-.anm .ft{padding-bottom:90px;color:var(--mut);font-size:12.5px;text-align:center;border-top:1px solid var(--line);padding-top:26px}
+/* sections */
+.anm .sec{position:relative;padding:96px 22px 0}
+.anm .wallsec{padding-left:0;padding-right:0}
+.anm .wall{margin-top:44px;display:grid;gap:18px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.anm .row{display:flex;gap:18px;width:max-content;animation:mq 70s linear infinite}
+.anm .r2{animation-direction:reverse;animation-duration:64s}
+.anm .wall:hover .row{animation-play-state:paused}
+.anm .wc{position:relative;flex:none;width:190px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#05060c;border:1.5px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.anm .wc b{position:absolute;z-index:2;top:10px;left:10px;font:800 10.5px/1 var(--hd);text-transform:uppercase;letter-spacing:.06em;color:var(--ink);background:var(--gold);padding:6px 9px;border-radius:999px}
+.anm .wc em{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:34px 12px 12px;font:800 14px/1.2 var(--hd);font-style:normal;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+/* vs */
+.anm .vs{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:center;margin-top:44px}
+.anm .bad,.anm .good{border-radius:26px;padding:30px 28px;border:1.5px solid var(--line);background:var(--card)}
+.anm .good{border-color:rgba(255,201,77,.6);background:linear-gradient(160deg,rgba(255,201,77,.14),rgba(255,255,255,.03));box-shadow:0 30px 70px rgba(255,170,70,.12)}
+.anm .lbl{display:block;font:800 22px var(--hd);margin-bottom:16px}
+.anm .bad .lbl{color:#ff9a9a}.anm .good .lbl{color:var(--gold)}
+.anm .vs ul{list-style:none;display:grid;gap:13px;font-size:15.5px}
+.anm .vs li{display:flex;gap:11px}
+.anm .bad li:before,.anm .good li:before{flex:none;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font:900 12px/1 Arial;margin-top:1px}
+.anm .bad li:before{content:'✕';background:rgba(255,110,110,.18);color:#ff8a8a}
+.anm .good li:before{content:'✓';background:var(--gold);color:var(--ink)}
+.anm .mid{display:grid;grid-template-columns:repeat(3,96px);gap:9px;rotate:-3deg}
+.anm .mini{position:relative;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#000;border:1.5px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.anm .mini:nth-child(even){translate:0 18px}
+.anm .mini i{position:absolute;z-index:2;left:6px;bottom:6px;font:800 9.5px/1 var(--hd);font-style:normal;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:4px 7px;border-radius:999px}
+/* steps */
+.anm .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.anm .st{position:relative;border-radius:24px;padding:28px 24px;border:1.5px solid var(--line);background:var(--card);transition:transform .25s}
+.anm .st:hover{transform:translateY(-6px)}
+.anm .st.ai{border-color:rgba(255,201,77,.55);background:linear-gradient(160deg,rgba(255,201,77,.15),rgba(255,255,255,.03))}
+.anm .st .n{position:absolute;top:14px;right:20px;font:900 60px/1 var(--hd);color:rgba(255,201,77,.16)}
+.anm .st svg{width:46px;height:46px;color:var(--gold);margin-bottom:16px}
+.anm .who{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.anm .st.ai .who{color:var(--gold)}
+.anm .st h3{font-size:21px;margin-bottom:8px}
+.anm .st p{color:var(--mut);font-size:15px}
+/* uses */
+.anm .uses{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.anm .use{border-radius:22px;padding:26px;border:1.5px solid var(--line);background:var(--card);transition:transform .25s,border-color .25s}
+.anm .use:hover{transform:translateY(-5px);border-color:rgba(255,201,77,.6)}
+.anm .ui{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,rgba(255,201,77,.25),rgba(255,169,77,.08));border:1px solid rgba(255,201,77,.4);color:var(--gold)}
+.anm .ui svg{width:26px;height:26px}
+.anm .use h3{font-size:19px;margin:16px 0 6px}
+.anm .use p{color:var(--mut);font-size:15px}
+/* catalog */
+.anm .filters{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:34px 0 28px}
+.anm .f{font:700 14px Arial,sans-serif;color:var(--w);background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:11px 19px;cursor:pointer;transition:.15s}
+.anm .f:hover{border-color:var(--gold);color:var(--gold)}
+.anm .f.on{background:var(--gold);color:var(--ink);border-color:var(--gold);box-shadow:0 8px 24px rgba(255,190,80,.3)}
+.anm .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.anm .vc{border-radius:28px;padding:9px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1.5px solid var(--line);transition:transform .3s,border-color .3s,box-shadow .3s;animation:in .4s ease both}
+.anm .vc:hover{transform:translateY(-8px);border-color:rgba(255,201,77,.65);box-shadow:0 26px 60px rgba(0,0,0,.45)}
+.anm .vc.hide{display:none}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+.anm .vf{position:relative;aspect-ratio:9/16;border-radius:21px;overflow:hidden;background:#05060c}
+.anm .vi{padding:16px 8px 8px}
+.anm .vi strong{display:block;font-size:19px;margin-bottom:5px}
+.anm .vi small{display:block;color:var(--mut);font-size:14px;line-height:1.45;margin-bottom:10px}
+.anm .vi code{display:block;font-size:12px;line-height:1.4;background:rgba(255,201,77,.09);border:1px solid rgba(255,201,77,.25);border-radius:10px;padding:8px 10px}
+.anm .ctac{grid-column:span 3;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px;padding:40px;background:radial-gradient(500px 300px at 90% 10%,rgba(255,201,77,.28),transparent 70%),linear-gradient(160deg,rgba(255,201,77,.12),rgba(124,92,255,.1));border-color:rgba(255,201,77,.55)}
+.anm .ctac strong{font-size:clamp(26px,3.2vw,40px);max-width:560px}
+.anm .ctac small{color:var(--mut);font-size:16px;max-width:520px}
+.anm .kick.dk{background:var(--ink);color:var(--gold);box-shadow:none}
+.anm .ph1 .live,.anm .ph3 .live{display:none}
+/* get */
+.anm .get{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:center}
+.anm .bk img{width:100%;height:auto;display:block;border-radius:22px;border:1px solid var(--line);box-shadow:0 34px 80px rgba(0,0,0,.6);transform:perspective(1000px) rotateY(9deg) rotateX(3deg)}
+.anm .list{list-style:none;display:grid;gap:12px;margin-top:24px}
+.anm .list li{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:15px 17px}
+.anm .list i{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--ink);font:900 15px/1 var(--hd);font-style:normal}
+.anm .list span{color:var(--mut);font-size:14.5px}
+.anm .list b{display:block;color:var(--w);font:800 16px/1.3 var(--hd);margin-bottom:3px}
+/* price */
+.anm .pricewrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;margin-top:44px}
+.anm .pb{border-radius:34px;padding:3px;background:linear-gradient(135deg,var(--gold),#ff7a59,#8a6bff,var(--gold));background-size:300% 300%;animation:gr 6s ease infinite;box-shadow:0 40px 90px rgba(255,150,80,.2)}
+@keyframes gr{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.anm .pin{background:#141327;border-radius:31px;padding:38px 32px;text-align:center}
+.anm .rib{display:inline-block;color:var(--gold);border:1.5px solid rgba(255,201,77,.5);background:rgba(255,201,77,.12);font-weight:700;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;padding:8px 15px;border-radius:999px}
+.anm .big{font:900 clamp(80px,11vw,112px)/1 var(--hd);color:var(--gold);margin:16px 0 4px;text-shadow:0 12px 44px rgba(255,180,70,.4)}
+.anm .big small{font-size:.36em;vertical-align:top;margin-right:6px;color:var(--w)}
+.anm .was{color:var(--mut);font-size:17px}
+.anm .forever{font:800 24px/1.25 var(--hd);margin:16px 0 22px}
+.anm .forever em{font-style:normal;color:var(--gold)}
+.anm .checks{list-style:none;text-align:left;display:grid;gap:11px;max-width:380px;margin:0 auto 28px;font-size:15.5px}
+.anm .checks li{display:flex;gap:12px}
+.anm .checks li:before{content:'✓';flex:none;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--ink);font:900 12px/1 Arial}
+.anm .cost{border-radius:26px;padding:30px;border:1.5px solid var(--line);background:var(--card)}
+.anm .cost h3{font-size:22px;margin-bottom:14px}
+.anm .cost table{width:100%;border-collapse:collapse;font-size:15px}
+.anm .cost td{padding:14px 4px;border-top:1px solid var(--line);vertical-align:top}
+.anm .cost td:first-child{font-weight:700;width:38%;color:var(--w)}
+.anm .cost td:last-child{color:var(--mut)}
+/* faq */
+.anm .faq{max-width:780px;margin:40px auto 0;display:grid;gap:12px}
+.anm details{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:19px 22px;transition:border-color .2s}
+.anm details[open]{border-color:rgba(255,201,77,.45)}
+.anm summary{cursor:pointer;list-style:none;font:800 17px/1.35 var(--hd);display:flex;justify-content:space-between;gap:16px}
+.anm summary::-webkit-details-marker{display:none}
+.anm summary:after{content:'+';color:var(--gold);font-size:26px;line-height:.8;transition:transform .2s}
+.anm details[open] summary:after{transform:rotate(45deg)}
+.anm details p{color:var(--mut);font-size:15.5px;margin-top:10px}
+/* final */
+.anm .fin{position:relative;margin-top:110px;padding:40px 0 90px;overflow:hidden}
+.anm .fps{position:relative;height:300px;max-width:760px;margin:0 auto}
+.anm .fp{position:absolute;bottom:0;width:150px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:2px solid rgba(255,255,255,.14);box-shadow:0 24px 60px rgba(0,0,0,.6);background:#05060c}
+.anm .fp0{left:4%;rotate:-14deg;translate:0 30px}
+.anm .fp1{left:21%;rotate:-7deg;translate:0 8px}
+.anm .fp2{left:50%;margin-left:-82px;width:164px;z-index:2}
+.anm .fp3{right:21%;rotate:7deg;translate:0 8px}
+.anm .fp4{right:4%;rotate:14deg;translate:0 30px}
+.anm .fint{margin-top:38px}
+.anm .fint h2{font-size:clamp(32px,5.4vw,60px)}
+.anm .fint .btn{margin-top:30px}
+.anm .ft{border-top:1px solid var(--line);padding:26px 22px 34px;color:var(--mut);font-size:12.5px;text-align:center}
 .anm .sticky{display:none}
-@media(max-width:900px){
+/* responsive */
+@media(max-width:1000px){.anm .grid{grid-template-columns:repeat(3,minmax(0,1fr))}.anm .ctac{grid-column:1/-1}.anm .steps{grid-template-columns:1fr 1fr}}
+@media(max-width:860px){
 .anm nav{display:none}
-.anm .hero{grid-template-columns:1fr;padding-top:36px}
-.anm .hp{height:470px}
-.anm .ph{width:150px;border-radius:22px;padding:6px}
-.anm .ph video{border-radius:17px}
-.anm .ph3{width:172px;left:calc(50% - 86px)}
-.anm .ph1{left:calc(50% - 190px);top:80px}
-.anm .ph2,.anm .ph4{display:none}
-.anm .ph5{right:calc(50% - 190px);top:96px}
+.anm .hero{grid-template-columns:1fr;text-align:center;padding:44px 22px 50px}
+.anm .cmd{margin-left:auto;margin-right:auto;text-align:left}
+.anm .chips,.anm .pm,.anm .cta{justify-content:center}
+.anm .hp{height:470px;max-width:440px;width:100%;margin:0 auto}
+.anm .ph{width:168px;border-radius:28px;padding:8px}.anm .ph .scr{border-radius:21px}
+.anm .ph2{width:190px;margin-left:-95px}
+.anm .ph:before{width:54px;height:14px;top:15px}
+.anm .stk{font-size:12px;padding:9px 12px}
+.anm .s2{left:0}.anm .s3{right:0}
+.anm .wc{width:150px;border-radius:18px}
 .anm .vs{grid-template-columns:1fr}
-.anm .mid{grid-template-columns:repeat(6,1fr);order:-1}
-.anm .uses,.anm .steps,.anm .two{grid-template-columns:1fr}
-.anm .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.anm .sticky{display:block;position:fixed;left:14px;right:14px;bottom:14px;z-index:30;text-align:center;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);font:700 16px 'Poppins';padding:15px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.anm .mid{grid-template-columns:repeat(6,1fr);order:-1;rotate:0deg;gap:6px}
+.anm .mini:nth-child(even){translate:0 10px}
+.anm .uses,.anm .get,.anm .pricewrap{grid-template-columns:1fr}
+.anm .bk img{transform:none}
+.anm .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.anm .vc{border-radius:22px;padding:7px}.anm .vf{border-radius:16px}
+.anm .vf .live{display:none}.anm .vf .tag{font-size:9.5px;padding:5px 8px;top:8px;left:8px}.anm .ctac{grid-column:1/-1;padding:28px 22px}.anm .ctac strong{font-size:24px}.anm .vi strong{font-size:16px}.anm .vi small{font-size:13px}.anm .vi code{font-size:11px;padding:7px 8px}
+.anm .sec{padding-top:72px}
+.anm .fps{height:220px}.anm .fp{width:105px;border-radius:16px}.anm .fp2{width:118px;margin-left:-59px}
+.anm .fp1{left:16%}.anm .fp3{right:16%}.anm .fp0{left:-2%}.anm .fp4{right:-2%}
+.anm .ft{padding-bottom:100px}
+.anm .sticky{display:flex;align-items:center;justify-content:center;gap:8px;position:fixed;left:14px;right:14px;bottom:14px;z-index:40;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);font:700 16px Arial,sans-serif;padding:16px;border-radius:999px;box-shadow:0 12px 34px rgba(0,0,0,.55)}
+.anm .sticky svg{width:18px;height:18px}
 }
-@media(prefers-reduced-motion:reduce){.anm .tk,.anm .ph{animation:none}}
+@media(max-width:520px){.anm .steps{grid-template-columns:1fr}.anm .hero h1{font-size:42px}.anm .pm b{font-size:44px}}
+@media(prefers-reduced-motion:reduce){.anm *{animation:none!important}}
 </style>
-<div class="anm" id="anm">
-<div class="bar">Ebook + skill <b>/animasi</b> · 21 gaya animasi · <a href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">RM39 sekali bayar →</a></div>
-<header class="hd"><div class="wrap hdi"><a class="logo" href="#atas"><b>/animasi</b><span>Claude skill</span></a>
-<nav><a href="#gaya">21 gaya</a><a href="#cara">Cara guna</a><a href="#kos">Kos</a><a href="#faq">Soalan lazim</a></nav>
+<div class="anm" id="anm"><div class="stars"></div><div class="aur a1"></div><div class="aur a2"></div>
+<div class="bar"><span class="pulse"></span>Baharu: <b>21 gaya animasi</b> dalam satu skill · <a href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">RM39 sekali bayar</a></div>
+<header class="hd"><div class="wrap hdi"><a class="logo" href="#atas">/animasi<span>Ebook + Skill Claude</span></a>
+<nav><a href="#gaya">21 gaya</a><a href="#cara">Cara guna</a><a href="#harga">Harga</a><a href="#faq">Soalan</a></nav>
 <a class="btn sm" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">Beli RM39</a></div></header>
 
 <section class="wrap hero" id="atas">
  <div class="ht">
-  <span class="kick">Video animasi tanpa AI penjana video</span>
-  <h1>Satu ayat.<br><em>Video animasi siap.</em></h1>
-  <p class="lead">Taip arahan dalam Claude, jana suara di ElevenLabs, dan dapat video menegak lengkap dengan kapsyen, muzik dan kesan bunyi. Semuanya dijana dengan kod.</p>
-  <div class="cmd"><span>/animasi</span> buatkan 3 punca negara jatuh, gaya-12</div>
-  <div class="cta"><a class="btn" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">Dapatkan sekarang · RM39</a><a class="btn ghost" href="#gaya">Tengok 21 gaya ↓</a></div>
-  <p class="mut"><s>RM69</s> &nbsp;Bayar sekali. Ebook + skill, guna selama-lamanya.</p>
+  <span class="kick">Ebook + Skill Claude</span>
+  <h1>Buat Video <span class="g">Animasi</span> dengan satu arahan</h1>
+  <p class="lead">Taip satu ayat. Claude tulis skrip, lukis setiap babak, letak kapsyen, muzik dan kesan bunyi. Anda terima video siap untuk Reels, TikTok dan Threads.</p>
+  <div class="cmd"><span class="c1">/animasi</span> <span class="type" data-p="buatkan 3 punca negara jatuh, gaya-12|buatkan kenapa kucing suka kotak, gaya-11|buatkan simpan RM100 sebulan jadi berapa, gaya-19|buatkan kuiz teka haiwan dari siluet, gaya-20|buatkan evolusi seni hingga piksel, gaya-15">buatkan 3 punca negara jatuh, gaya-12</span><span class="caret"></span></div>
+  <div class="chips"><span>21 gaya animasi</span><span>Kapsyen ikut suara</span><span>Muzik &amp; kesan bunyi</span><span>Bahasa Melayu</span></div>
+  <div class="pm"><b>RM39</b><s>RM69</s><span>Bayar sekali, guna selama-lamanya</span></div>
+  <div class="cta"><a class="btn" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">Dapatkan sekarang <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn ghost" href="#gaya">Tengok 21 gaya</a></div>
  </div>
- <div class="hp" aria-label="Contoh video sebenar"><div class="ph ph1"><video class="" src="https://animasiclaude.xyz/v/g03.mp4" poster="https://animasiclaude.xyz/v/g03.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video></div><div class="ph ph2"><video class="" src="https://animasiclaude.xyz/v/g15.mp4" poster="https://animasiclaude.xyz/v/g15.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video></div><div class="ph ph3"><video class="" src="https://animasiclaude.xyz/v/g12.mp4" poster="https://animasiclaude.xyz/v/g12.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video></div><div class="ph ph4"><video class="" src="https://animasiclaude.xyz/v/g20.mp4" poster="https://animasiclaude.xyz/v/g20.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video></div><div class="ph ph5"><video class="" src="https://animasiclaude.xyz/v/g07.mp4" poster="https://animasiclaude.xyz/v/g07.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video></div><i class="glow"></i></div>
+ <div class="hp"><i class="glow"></i><div class="ph ph1"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g03.mp4" poster="https://animasiclaude.xyz/v/g03.jpg" muted loop playsinline autoplay preload="auto" disablepictureinpicture></video><span class="live"><i></i>Contoh sebenar</span><span class="tag">gaya-3</span></div></div><div class="ph ph2"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g12.mp4" poster="https://animasiclaude.xyz/v/g12.jpg" muted loop playsinline autoplay preload="auto" disablepictureinpicture></video><span class="live"><i></i>Contoh sebenar</span><span class="tag">gaya-12</span></div></div><div class="ph ph3"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g20.mp4" poster="https://animasiclaude.xyz/v/g20.jpg" muted loop playsinline autoplay preload="auto" disablepictureinpicture></video><span class="live"><i></i>Contoh sebenar</span><span class="tag">gaya-20</span></div></div>
+  <span class="stk s1">✦ 21 gaya</span><span class="stk s2">Kapsyen ikut suara ✓</span><span class="stk s3">Muzik dijana kod ♪</span></div>
 </section>
 
-<div class="tick" aria-hidden="true"><div class="tk"><span><b>1</b> Kartun Riang</span><span><b>2</b> Wayang Kertas</span><span><b>3</b> Dakwat &amp; Cat Air</span><span><b>4</b> Kartun Klasik 50an</span><span><b>5</b> Komik Pow!</span><span><b>6</b> Buku Cerita Ajaib</span><span><b>7</b> Dunia Mainan 3D</span><span><b>8</b> Malam Low-Poly</span><span><b>9</b> Studio Explainer 3D</span><span><b>10</b> Bayang Sinematik</span><span><b>11</b> Lidi Lawak</span><span><b>12</b> Lidi Sinema</span><span><b>13</b> Lidi Neon</span><span><b>14</b> Kolaj Koyak-Tampal</span><span><b>15</b> Mesin Masa Seni</span><span><b>16</b> Conteng Krayon</span><span><b>17</b> Papan Putih Ajaib</span><span><b>18</b> Huruf Menari</span><span><b>19</b> Infografik Hidup</span><span><b>20</b> Kuiz Teka-Teki</span><span><b>21</b> Pentas Keynote</span><span><b>1</b> Kartun Riang</span><span><b>2</b> Wayang Kertas</span><span><b>3</b> Dakwat &amp; Cat Air</span><span><b>4</b> Kartun Klasik 50an</span><span><b>5</b> Komik Pow!</span><span><b>6</b> Buku Cerita Ajaib</span><span><b>7</b> Dunia Mainan 3D</span><span><b>8</b> Malam Low-Poly</span><span><b>9</b> Studio Explainer 3D</span><span><b>10</b> Bayang Sinematik</span><span><b>11</b> Lidi Lawak</span><span><b>12</b> Lidi Sinema</span><span><b>13</b> Lidi Neon</span><span><b>14</b> Kolaj Koyak-Tampal</span><span><b>15</b> Mesin Masa Seni</span><span><b>16</b> Conteng Krayon</span><span><b>17</b> Papan Putih Ajaib</span><span><b>18</b> Huruf Menari</span><span><b>19</b> Infografik Hidup</span><span><b>20</b> Kuiz Teka-Teki</span><span><b>21</b> Pentas Keynote</span></div></div>
+<div class="strip" aria-hidden="true"><div class="si"><span>Kapsyen ikut suara</span><span>21 gaya animasi</span><span>Muzik dijana kod</span><span>Skrip &amp; storyboard</span><span>Tiada perisian edit</span><span>Bahasa Melayu</span><span>Video menegak 9:16</span><span>Bayar sekali</span><span>Kapsyen ikut suara</span><span>21 gaya animasi</span><span>Muzik dijana kod</span><span>Skrip &amp; storyboard</span><span>Tiada perisian edit</span><span>Bahasa Melayu</span><span>Video menegak 9:16</span><span>Bayar sekali</span></div></div>
+
+<section class="sec wallsec">
+ <div class="wrap c"><span class="kick">Satu skill, 21 rupa</span><h2>Semua ini dibuat dengan <span class="g">satu arahan</span></h2><p class="lead">Klip di bawah ialah video sebenar yang dihasilkan skill ini. Tiada AI penjana video, tiada perisian edit.</p></div>
+ <div class="wall"><div class="row r1"><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g01.mp4" poster="https://animasiclaude.xyz/v/g01.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-1</b><em>Kartun Riang</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g02.mp4" poster="https://animasiclaude.xyz/v/g02.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-2</b><em>Wayang Kertas</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g03.mp4" poster="https://animasiclaude.xyz/v/g03.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-3</b><em>Dakwat &amp; Cat Air</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g04.mp4" poster="https://animasiclaude.xyz/v/g04.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-4</b><em>Kartun Klasik 50an</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g05.mp4" poster="https://animasiclaude.xyz/v/g05.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-5</b><em>Komik Pow!</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g06.mp4" poster="https://animasiclaude.xyz/v/g06.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-6</b><em>Buku Cerita Ajaib</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g07.mp4" poster="https://animasiclaude.xyz/v/g07.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-7</b><em>Dunia Mainan 3D</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g08.mp4" poster="https://animasiclaude.xyz/v/g08.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-8</b><em>Malam Low-Poly</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g09.mp4" poster="https://animasiclaude.xyz/v/g09.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-9</b><em>Studio Explainer 3D</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g10.mp4" poster="https://animasiclaude.xyz/v/g10.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-10</b><em>Bayang Sinematik</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g11.mp4" poster="https://animasiclaude.xyz/v/g11.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-11</b><em>Lidi Lawak</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g01.mp4" poster="https://animasiclaude.xyz/v/g01.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-1</b><em>Kartun Riang</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g02.mp4" poster="https://animasiclaude.xyz/v/g02.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-2</b><em>Wayang Kertas</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g03.mp4" poster="https://animasiclaude.xyz/v/g03.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-3</b><em>Dakwat &amp; Cat Air</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g04.mp4" poster="https://animasiclaude.xyz/v/g04.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-4</b><em>Kartun Klasik 50an</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g05.mp4" poster="https://animasiclaude.xyz/v/g05.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-5</b><em>Komik Pow!</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g06.mp4" poster="https://animasiclaude.xyz/v/g06.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-6</b><em>Buku Cerita Ajaib</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g07.mp4" poster="https://animasiclaude.xyz/v/g07.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-7</b><em>Dunia Mainan 3D</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g08.mp4" poster="https://animasiclaude.xyz/v/g08.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-8</b><em>Malam Low-Poly</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g09.mp4" poster="https://animasiclaude.xyz/v/g09.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-9</b><em>Studio Explainer 3D</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g10.mp4" poster="https://animasiclaude.xyz/v/g10.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-10</b><em>Bayang Sinematik</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g11.mp4" poster="https://animasiclaude.xyz/v/g11.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-11</b><em>Lidi Lawak</em></div></div><div class="row r2"><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g12.mp4" poster="https://animasiclaude.xyz/v/g12.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-12</b><em>Lidi Sinema</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g13.mp4" poster="https://animasiclaude.xyz/v/g13.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-13</b><em>Lidi Neon</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g14.mp4" poster="https://animasiclaude.xyz/v/g14.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-14</b><em>Kolaj Koyak-Tampal</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g15.mp4" poster="https://animasiclaude.xyz/v/g15.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-15</b><em>Mesin Masa Seni</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g16.mp4" poster="https://animasiclaude.xyz/v/g16.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-16</b><em>Conteng Krayon</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g17.mp4" poster="https://animasiclaude.xyz/v/g17.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-17</b><em>Papan Putih Ajaib</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g18.mp4" poster="https://animasiclaude.xyz/v/g18.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-18</b><em>Huruf Menari</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g19.mp4" poster="https://animasiclaude.xyz/v/g19.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-19</b><em>Infografik Hidup</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g20.mp4" poster="https://animasiclaude.xyz/v/g20.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-20</b><em>Kuiz Teka-Teki</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g21.mp4" poster="https://animasiclaude.xyz/v/g21.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-21</b><em>Pentas Keynote</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g12.mp4" poster="https://animasiclaude.xyz/v/g12.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-12</b><em>Lidi Sinema</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g13.mp4" poster="https://animasiclaude.xyz/v/g13.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-13</b><em>Lidi Neon</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g14.mp4" poster="https://animasiclaude.xyz/v/g14.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-14</b><em>Kolaj Koyak-Tampal</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g15.mp4" poster="https://animasiclaude.xyz/v/g15.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-15</b><em>Mesin Masa Seni</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g16.mp4" poster="https://animasiclaude.xyz/v/g16.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-16</b><em>Conteng Krayon</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g17.mp4" poster="https://animasiclaude.xyz/v/g17.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-17</b><em>Papan Putih Ajaib</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g18.mp4" poster="https://animasiclaude.xyz/v/g18.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-18</b><em>Huruf Menari</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g19.mp4" poster="https://animasiclaude.xyz/v/g19.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-19</b><em>Infografik Hidup</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g20.mp4" poster="https://animasiclaude.xyz/v/g20.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-20</b><em>Kuiz Teka-Teki</em></div><div class="wc"><video class="" src="https://animasiclaude.xyz/v/g21.mp4" poster="https://animasiclaude.xyz/v/g21.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><b>gaya-21</b><em>Pentas Keynote</em></div></div></div>
+</section>
 
 <section class="wrap sec">
- <div class="c"><span class="kick">Kenapa video AI nampak murah?</span><h2>Beza video yang <em>direka</em> dengan video yang <em>dijana rawak</em></h2></div>
+ <div class="c"><span class="kick">Kenapa video AI nampak murah?</span><h2>Video yang <span class="g">direka</span>, bukan dijana rawak</h2></div>
  <div class="vs">
-  <div class="bad"><h3>Video AI biasa</h3><ul><li>Muka dan tangan berubah dari babak ke babak</li><li>Kapsyen salah eja atau lewat dari suara</li><li>Setiap video rupa lain, tiada identiti</li><li>Bayar kredit setiap kali cuba semula</li></ul></div>
-  <div class="mid"><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g19.mp4" poster="https://animasiclaude.xyz/v/g19.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video><i>gaya-19</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g10.mp4" poster="https://animasiclaude.xyz/v/g10.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video><i>gaya-10</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g16.mp4" poster="https://animasiclaude.xyz/v/g16.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video><i>gaya-16</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g05.mp4" poster="https://animasiclaude.xyz/v/g05.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video><i>gaya-5</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g13.mp4" poster="https://animasiclaude.xyz/v/g13.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video><i>gaya-13</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g08.mp4" poster="https://animasiclaude.xyz/v/g08.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video><i>gaya-8</i></div></div>
-  <div class="good"><h3>/animasi</h3><ul><li>Watak dan dunia konsisten, dilukis dengan kod</li><li>Kapsyen disegerakkan perkataan demi perkataan dengan suara anda</li><li>21 gaya tetap, satu siri nampak sama</li><li>Betulkan satu babak sahaja tanpa jana semula semua</li></ul></div>
+  <div class="bad"><span class="lbl">Video AI biasa</span><ul><li>Muka dan tangan berubah dari babak ke babak</li><li>Kapsyen salah eja atau lewat dari suara</li><li>Setiap video rupa lain, tiada identiti</li><li>Bayar kredit setiap kali cuba semula</li></ul></div>
+  <div class="mid"><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g19.mp4" poster="https://animasiclaude.xyz/v/g19.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><i>gaya-19</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g10.mp4" poster="https://animasiclaude.xyz/v/g10.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><i>gaya-10</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g16.mp4" poster="https://animasiclaude.xyz/v/g16.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><i>gaya-16</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g05.mp4" poster="https://animasiclaude.xyz/v/g05.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><i>gaya-5</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g13.mp4" poster="https://animasiclaude.xyz/v/g13.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><i>gaya-13</i></div><div class="mini"><video class="" src="https://animasiclaude.xyz/v/g08.mp4" poster="https://animasiclaude.xyz/v/g08.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><i>gaya-8</i></div></div>
+  <div class="good"><span class="lbl">/animasi</span><ul><li>Watak dan dunia konsisten, dilukis dengan kod</li><li>Kapsyen diselaraskan perkataan demi perkataan dengan suara</li><li>21 gaya tetap, satu siri nampak sama</li><li>Betulkan satu babak sahaja, tak perlu jana semula</li></ul></div>
  </div>
-</section>
-
-<section class="wrap sec">
- <div class="c"><span class="kick">Sesuai untuk</span><h2>Buat apa dengan <em>/animasi</em>?</h2></div>
- <div class="uses"><div class="use"><em>🎬</em><h3>Reels, TikTok & Threads</h3><p>Video menegak 9:16 siap untuk dimuat naik.</p></div><div class="use"><em>📣</em><h3>Kandungan jenama & jualan</h3><p>Explainer produk, pelancaran, tips untuk pelanggan.</p></div><div class="use"><em>🎓</em><h3>Pengajaran & sains</h3><p>Terangkan idea sukar dengan visual yang bergerak.</p></div><div class="use"><em>📖</em><h3>Cerita kanak-kanak</h3><p>Kisah haiwan dan pengajaran dalam dunia berwarna.</p></div><div class="use"><em>💸</em><h3>Kewangan & motivasi</h3><p>Angka dan carta yang dibina dari data sebenar.</p></div><div class="use"><em>🧠</em><h3>Kuiz & teka-teki</h3><p>Video kuiz yang buat penonton komen jawapan.</p></div></div>
 </section>
 
 <section class="wrap sec" id="cara">
- <div class="c"><span class="kick">Cara guna</span><h2>Tiga langkah, <em>kerja anda cuma dua</em></h2></div>
- <ol class="steps">
-  <li><b>1</b><h3>Taip arahan</h3><p>Contoh: <code>/animasi buatkan kenapa kucing suka kotak, gaya-11</code>. Claude balas dengan skrip, storyboard dan teks suara.</p></li>
-  <li><b>2</b><h3>Jana suara</h3><p>Tampal teks ke ElevenLabs, muat turun fail MP3 setiap babak, dan upload ke chat yang sama.</p></li>
-  <li><b>3</b><h3>Terima MP4</h3><p>Claude siapkan animasi, kapsyen, muzik dan bunyi. Minta ubah mana-mana babak, kemudian post.</p></li>
- </ol>
+ <div class="c"><span class="kick">Cara ia berfungsi</span><h2>Anda buat <span class="g">dua</span> kerja. Claude buat selebihnya.</h2><p class="lead">Semuanya dalam satu chat di app Claude.</p></div>
+ <div class="steps">
+  <div class="st"><span class="n">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9l3 3-3 3M13 15h4"/></svg><span class="who">Anda</span><h3>Taip arahan</h3><p><code>/animasi</code> buatkan 3 punca negara jatuh, gaya-12</p></div>
+  <div class="st ai"><span class="n">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg><span class="who">Claude</span><h3>Pakej pra-produksi</h3><p>Skrip, storyboard dan teks suara siap ditampal.</p></div>
+  <div class="st"><span class="n">3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M7 8v8M11 5v14M15 9v6M19 11v2"/></svg><span class="who">Anda</span><h3>Jana suara</h3><p>Di ElevenLabs, upload fail vo_01, vo_02 dan seterusnya.</p></div>
+  <div class="st ai"><span class="n">4</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/></svg><span class="who">Claude</span><h3>Video siap</h3><p>Animasi, kapsyen, muzik dan bunyi. Terus dapat fail MP4.</p></div>
+ </div>
 </section>
 
-<section class="wrap sec" id="kos">
- <div class="c"><span class="kick">Kos sebenar</span><h2>Apa yang anda <em>perlu bayar</em></h2></div>
- <div class="two">
-  <table class="tb"><thead><tr><th>Perkara</th><th>Kos</th></tr></thead><tbody>
-   <tr><td><b>/animasi</b> (ebook + skill)</td><td><b class="g">RM39</b> sekali bayar</td></tr>
-   <tr><td>Claude Pro</td><td>USD 20 sebulan, bayar kepada Anthropic</td></tr>
-   <tr><td>ElevenLabs</td><td>Pelan percuma ada. Starter USD 6 sebulan untuk guna komersial</td></tr>
-   <tr><td>Muzik &amp; kesan bunyi</td><td>Percuma, dijana dengan kod</td></tr></tbody></table>
-  <div class="price"><span class="kick dk">Tawaran</span><div class="pr"><b>RM39</b><s>RM69</s></div><p>Ebook 13 bab + skill <b>/animasi</b> dengan 21 gaya. Tiada yuran bulanan untuk /animasi.</p>
-   <a class="btn" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">Beli sekarang · RM39</a><small>Fail dihantar ke email selepas bayaran berjaya.</small></div>
- </div>
- <p class="mut c sm">Harga Claude dan ElevenLabs dibayar terus kepada syarikat masing-masing dan boleh berubah. Semak sebelum melanggan.</p>
+<section class="wrap sec">
+ <div class="c"><span class="kick">Sesuai untuk</span><h2>Buat apa dengan <span class="g">/animasi</span>?</h2></div>
+ <div class="uses"><div class="use"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span><h3>Reels, TikTok & Threads</h3><p>Video menegak 9:16 siap dimuat naik, lengkap dengan kapsyen.</p></div><div class="use"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15 9a4 4 0 010 6M18 6a8 8 0 010 12"/></svg></span><h3>Kandungan jenama & jualan</h3><p>Explainer produk, pelancaran dan tips untuk pelanggan.</p></div><div class="use"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><h3>Pengajaran & sains</h3><p>Terangkan idea sukar dengan visual yang bergerak.</p></div><div class="use"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M4 19V5"/></svg></span><h3>Cerita kanak-kanak</h3><p>Kisah haiwan dan pengajaran dalam dunia berwarna.</p></div><div class="use"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Kewangan & motivasi</h3><p>Angka dan carta yang dibina dari data sebenar.</p></div><div class="use"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 0c0 2-2.5 2-2.5 4M12 17h.01"/></svg></span><h3>Kuiz & teka-teki</h3><p>Video kuiz yang buat penonton komen jawapan.</p></div></div>
 </section>
 
 <section class="wrap sec" id="gaya">
- <div class="c"><span class="kick">Katalog</span><h2>21 gaya. <em>Pilih ikut cerita.</em></h2><p class="lead">Semua video di bawah bergerak. Setiap gaya ada rupa, rentak dan bunyi sendiri.</p></div>
+ <div class="c"><span class="kick">Katalog 21 gaya</span><h2>Pilih gaya ikut <span class="g">cerita</span> anda</h2><p class="lead">Setiap gaya ada rupa, rentak dan bunyi sendiri.</p></div>
  <div class="filters"><button class="f on" data-g="all">Semua 21</button><button class="f" data-g="kartun">Kartun & buku cerita</button><button class="f" data-g="3d">Dunia 3D</button><button class="f" data-g="lidi">Orang lidi</button><button class="f" data-g="seni">Seni & tekstur</button><button class="f" data-g="teks">Teks, data & kuiz</button></div>
- <div class="grid" id="grid"><article class="card" data-g="kartun"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g01.mp4" poster="https://animasiclaude.xyz/v/g01.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-1</span></div><h3>Kartun Riang</h3><p>Watak kartun 2D, dunia kampung berlapis</p><code>/animasi buatkan … dalam gaya-1</code></article><article class="card" data-g="kartun"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g02.mp4" poster="https://animasiclaude.xyz/v/g02.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-2</span></div><h3>Wayang Kertas</h3><p>Boneka kertas potong, set senja</p><code>/animasi buatkan … dalam gaya-2</code></article><article class="card" data-g="kartun"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g03.mp4" poster="https://animasiclaude.xyz/v/g03.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-3</span></div><h3>Dakwat &amp; Cat Air</h3><p>Nampak dilukis tangan atas kertas</p><code>/animasi buatkan … dalam gaya-3</code></article><article class="card" data-g="kartun"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g04.mp4" poster="https://animasiclaude.xyz/v/g04.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-4</span></div><h3>Kartun Klasik 50an</h3><p>Warna rata, garis putus, tajuk slab</p><code>/animasi buatkan … dalam gaya-4</code></article><article class="card" data-g="kartun"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g05.mp4" poster="https://animasiclaude.xyz/v/g05.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-5</span></div><h3>Komik Pow!</h3><p>Panel komik, sunburst, bintang bunyi</p><code>/animasi buatkan … dalam gaya-5</code></article><article class="card" data-g="kartun"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g06.mp4" poster="https://animasiclaude.xyz/v/g06.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-6</span></div><h3>Buku Cerita Ajaib</h3><p>Dunia mainan terang untuk cerita kanak-kanak</p><code>/animasi buatkan … dalam gaya-6</code></article><article class="card" data-g="3d"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g07.mp4" poster="https://animasiclaude.xyz/v/g07.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-7</span></div><h3>Dunia Mainan 3D</h3><p>3D bulat, versi siang dan malam</p><code>/animasi buatkan … dalam gaya-7</code></article><article class="card" data-g="3d"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g08.mp4" poster="https://animasiclaude.xyz/v/g08.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-8</span></div><h3>Malam Low-Poly</h3><p>3D bersegi, lampu jalan oren dan kabus</p><code>/animasi buatkan … dalam gaya-8</code></article><article class="card" data-g="3d"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g09.mp4" poster="https://animasiclaude.xyz/v/g09.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-9</span></div><h3>Studio Explainer 3D</h3><p>&quot;Boleh ke X tahan Y?&quot; dengan slow motion</p><code>/animasi buatkan … dalam gaya-9</code></article><article class="card" data-g="3d"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g10.mp4" poster="https://animasiclaude.xyz/v/g10.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-10</span></div><h3>Bayang Sinematik</h3><p>Siluet hitam, zum sentak, kapsyen menghentak</p><code>/animasi buatkan … dalam gaya-10</code></article><article class="card" data-g="lidi"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g11.mp4" poster="https://animasiclaude.xyz/v/g11.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-11</span></div><h3>Lidi Lawak</h3><p>Orang lidi ekspresif, bunyi kartun</p><code>/animasi buatkan … dalam gaya-11</code></article><article class="card" data-g="lidi"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g12.mp4" poster="https://animasiclaude.xyz/v/g12.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-12</span></div><h3>Lidi Sinema</h3><p>Orang lidi dalam gelap, satu sumber cahaya</p><code>/animasi buatkan … dalam gaya-12</code></article><article class="card" data-g="lidi"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g13.mp4" poster="https://animasiclaude.xyz/v/g13.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-13</span></div><h3>Lidi Neon</h3><p>Putih atas gelap, satu aksen kuning</p><code>/animasi buatkan … dalam gaya-13</code></article><article class="card" data-g="seni"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g14.mp4" poster="https://animasiclaude.xyz/v/g14.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-14</span></div><h3>Kolaj Koyak-Tampal</h3><p>Kertas koyak, keratan akhbar, pelekat</p><code>/animasi buatkan … dalam gaya-14</code></article><article class="card" data-g="seni"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g15.mp4" poster="https://animasiclaude.xyz/v/g15.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-15</span></div><h3>Mesin Masa Seni</h3><p>Watak sama dilukis ikut zaman seni</p><code>/animasi buatkan … dalam gaya-15</code></article><article class="card" data-g="seni"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g16.mp4" poster="https://animasiclaude.xyz/v/g16.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-16</span></div><h3>Conteng Krayon</h3><p>Pen, marker dan krayon atas kertas krim</p><code>/animasi buatkan … dalam gaya-16</code></article><article class="card" data-g="seni"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g17.mp4" poster="https://animasiclaude.xyz/v/g17.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-17</span></div><h3>Papan Putih Ajaib</h3><p>Marker atas papan putih, strok demi strok</p><code>/animasi buatkan … dalam gaya-17</code></article><article class="card" data-g="teks"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g18.mp4" poster="https://animasiclaude.xyz/v/g18.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-18</span></div><h3>Huruf Menari</h3><p>Perkataan gergasi menghentak dan bertukar</p><code>/animasi buatkan … dalam gaya-18</code></article><article class="card" data-g="teks"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g19.mp4" poster="https://animasiclaude.xyz/v/g19.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-19</span></div><h3>Infografik Hidup</h3><p>Angka, carta dan kad dibina dari data</p><code>/animasi buatkan … dalam gaya-19</code></article><article class="card" data-g="teks"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g20.mp4" poster="https://animasiclaude.xyz/v/g20.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-20</span></div><h3>Kuiz Teka-Teki</h3><p>Kuiz TV: siluet, pemasa, pendedahan</p><code>/animasi buatkan … dalam gaya-20</code></article><article class="card" data-g="teks"><div class="scr"><video class="" src="https://animasiclaude.xyz/v/g21.mp4" poster="https://animasiclaude.xyz/v/g21.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video><span class="no">gaya-21</span></div><h3>Pentas Keynote</h3><p>Pentas pelancaran, nombor gergasi</p><code>/animasi buatkan … dalam gaya-21</code></article></div>
- <p class="mut c sm">Demo ialah klip pendek dari video sebenar yang dijana skill ini. Sesetengah dalam Bahasa Inggeris; kapsyen video anda ikut bahasa arahan anda.</p>
+ <div class="grid"><article class="vc" data-g="kartun"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g01.mp4" poster="https://animasiclaude.xyz/v/g01.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-1</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Kartun Riang</strong><small>Watak kartun 2D, dunia kampung berlapis</small><code>/animasi makcik kedai runcit hadapi harga naik, gaya-1</code></div></article><article class="vc" data-g="kartun"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g02.mp4" poster="https://animasiclaude.xyz/v/g02.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-2</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Wayang Kertas</strong><small>Boneka kertas potong, set senja</small><code>/animasi kenapa nasi lemak makin mahal, gaya-2</code></div></article><article class="vc" data-g="kartun"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g03.mp4" poster="https://animasiclaude.xyz/v/g03.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-3</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Dakwat &amp; Cat Air</strong><small>Nampak dilukis tangan atas kertas</small><code>/animasi semut bawa pulang makanan, gaya-3</code></div></article><article class="vc" data-g="kartun"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g04.mp4" poster="https://animasiclaude.xyz/v/g04.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-4</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Kartun Klasik 50an</strong><small>Warna rata, garis putus, tajuk slab</small><code>/animasi 4 langkah masak telur dadar, gaya-4</code></div></article><article class="vc" data-g="kartun"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g05.mp4" poster="https://animasiclaude.xyz/v/g05.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-5</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Komik Pow!</strong><small>Panel komik, sunburst, bintang bunyi</small><code>/animasi wira lawan robot pencuri duit, gaya-5</code></div></article><article class="vc" data-g="kartun"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g06.mp4" poster="https://animasiclaude.xyz/v/g06.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-6</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Buku Cerita Ajaib</strong><small>Dunia mainan terang untuk kanak-kanak</small><code>/animasi budak dan kucing di padang, gaya-6</code></div></article><article class="vc" data-g="3d"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g07.mp4" poster="https://animasiclaude.xyz/v/g07.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-7</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Dunia Mainan 3D</strong><small>3D bulat, versi siang dan malam</small><code>/animasi atuk ajar cucu memancing, gaya-7</code></div></article><article class="vc" data-g="3d"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g08.mp4" poster="https://animasiclaude.xyz/v/g08.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-8</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Malam Low-Poly</strong><small>3D bersegi, lampu jalan oren, kabus</small><code>/animasi pemandu lori nampak sesuatu, gaya-8</code></div></article><article class="vc" data-g="3d"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g09.mp4" poster="https://animasiclaude.xyz/v/g09.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-9</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Studio Explainer 3D</strong><small>“Boleh ke X tahan Y?” dalam slow motion</small><code>/animasi boleh ke helmet tahan kelapa jatuh, gaya-9</code></div></article><article class="vc" data-g="3d"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g10.mp4" poster="https://animasiclaude.xyz/v/g10.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-10</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Bayang Sinematik</strong><small>Siluet hitam, zum sentak, kapsyen menghentak</small><code>/animasi terdampar dan jumpa kotak misteri, gaya-10</code></div></article><article class="vc" data-g="lidi"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g11.mp4" poster="https://animasiclaude.xyz/v/g11.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-11</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Lidi Lawak</strong><small>Orang lidi ekspresif, bunyi kartun</small><code>/animasi kenapa kucing suka kotak, gaya-11</code></div></article><article class="vc" data-g="lidi"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g12.mp4" poster="https://animasiclaude.xyz/v/g12.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-12</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Lidi Sinema</strong><small>Orang lidi dalam gelap, satu cahaya</small><code>/animasi 3 punca negara jatuh, gaya-12</code></div></article><article class="vc" data-g="lidi"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g13.mp4" poster="https://animasiclaude.xyz/v/g13.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-13</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Lidi Neon</strong><small>Putih atas gelap, satu aksen kuning</small><code>/animasi hidup macam mendaki bukit, gaya-13</code></div></article><article class="vc" data-g="seni"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g14.mp4" poster="https://animasiclaude.xyz/v/g14.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-14</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Kolaj Koyak-Tampal</strong><small>Kertas koyak, keratan akhbar, pelekat</small><code>/animasi sejarah ringkas duit, gaya-14</code></div></article><article class="vc" data-g="seni"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g15.mp4" poster="https://animasiclaude.xyz/v/g15.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-15</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Mesin Masa Seni</strong><small>Watak sama dilukis ikut zaman seni</small><code>/animasi evolusi seni hingga piksel, gaya-15</code></div></article><article class="vc" data-g="seni"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g16.mp4" poster="https://animasiclaude.xyz/v/g16.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-16</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Conteng Krayon</strong><small>Pen, marker dan krayon atas kertas</small><code>/animasi budak yang takut hujan, gaya-16</code></div></article><article class="vc" data-g="seni"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g17.mp4" poster="https://animasiclaude.xyz/v/g17.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-17</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Papan Putih Ajaib</strong><small>Marker atas papan putih, strok demi strok</small><code>/animasi 3 cara jimat duit dapur, gaya-17</code></div></article><article class="vc" data-g="teks"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g18.mp4" poster="https://animasiclaude.xyz/v/g18.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-18</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Huruf Menari</strong><small>Perkataan gergasi menghentak dan bertukar</small><code>/animasi 3 sebab susah bangun pagi, gaya-18</code></div></article><article class="vc" data-g="teks"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g19.mp4" poster="https://animasiclaude.xyz/v/g19.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-19</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Infografik Hidup</strong><small>Angka dan carta dibina dari data</small><code>/animasi simpan RM100 sebulan 30 tahun, gaya-19</code></div></article><article class="vc" data-g="teks"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g20.mp4" poster="https://animasiclaude.xyz/v/g20.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-20</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Kuiz Teka-Teki</strong><small>Kuiz TV: siluet, pemasa, pendedahan</small><code>/animasi teka haiwan dari siluet, gaya-20</code></div></article><article class="vc" data-g="teks"><div class="vf"><video class="" src="https://animasiclaude.xyz/v/g21.mp4" poster="https://animasiclaude.xyz/v/g21.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video><span class="tag">gaya-21</span><span class="live"><i></i>Contoh</span></div><div class="vi"><strong>Pentas Keynote</strong><small>Pentas pelancaran, nombor gergasi</small><code>/animasi pelancaran aplikasi baharu, gaya-21</code></div></article><a class="vc ctac" data-g="all" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener"><span class="kick dk">21 gaya, satu harga</span><strong>Dapatkan semua 21 gaya dalam satu skill</strong><small>Ebook 13 bab + skill /animasi. Bayar sekali RM39, guna selama-lamanya.</small><span class="btn">Beli sekarang · RM39 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+ <p class="note c">Sesetengah demo dalam Bahasa Inggeris. Kapsyen video anda ikut bahasa arahan anda.</p>
 </section>
 
-<section class="wrap sec" id="faq">
- <div class="c"><span class="kick">Soalan lazim</span><h2>Sebelum <em>anda beli</em></h2></div>
- <div class="faq">
-  <details open><summary>Betul ke bayar sekali sahaja?</summary><p>Ya. RM39 sekali untuk ebook dan skill /animasi, milik anda selama-lamanya. Tiada yuran bulanan untuk /animasi. Langganan Claude Pro dan ElevenLabs dibayar terus kepada syarikat masing-masing.</p></details>
-  <details><summary>Perlu pelan Claude yang mana?</summary><p>Ebook ini guna Claude Pro. Pelan percuma boleh guna skill, tetapi render video makan banyak had penggunaan.</p></details>
-  <details><summary>Boleh guna suara sendiri?</summary><p>Boleh. Rakam satu fail untuk setiap baris dalam jadual suara dan namakan ikut nombor. Atau guna ElevenLabs untuk suara Bahasa Melayu.</p></details>
-  <details><summary>Boleh guna untuk bisnes dan klien?</summary><p>Boleh. Lesen peribadi untuk seorang pengguna, dan video yang anda hasilkan milik anda. Fail zip dan ebook tidak boleh dikongsi atau dijual semula. Untuk video berpendapatan, guna pelan berbayar ElevenLabs.</p></details>
-  <details><summary>Berapa lama nak siap satu video?</summary><p>Bergantung pada gaya. Gaya paling laju siap dalam kurang dua minit; gaya 3D yang berat boleh ambil 10 hingga 25 minit.</p></details>
-  <details><summary>Macam mana saya dapat fail?</summary><p>Selepas bayaran berjaya, animasi.zip dan ebook dihantar ke email yang anda guna semasa membayar. Pemasangan dibuat sekali melalui menu Plugins dalam Claude, dan ebook tunjuk langkah demi langkah.</p></details>
+<section class="wrap sec">
+ <div class="get">
+  <div class="bk"><img src="https://animasiclaude.xyz/v/ebook.jpg" alt="Ebook Buat Video Animasi dengan Claude" width="960" height="600"></div>
+  <div><span class="kick">Apa yang anda dapat</span><h2>Semua yang perlu, dalam <span class="g">satu pakej</span></h2>
+   <ul class="list">
+    <li><i>1</i><span><b>Skill /animasi (animasi.zip)</b>Pasang sekali ke akaun Claude, guna dalam setiap chat.</span></li>
+    <li><i>2</i><span><b>Ebook panduan 13 bab</b>Setup, cara guna, contoh arahan dan FAQ, dengan gambar setiap langkah.</span></li>
+    <li><i>3</i><span><b>21 gaya animasi</b>Kartun 2D, dunia 3D, orang lidi, kolaj, hingga infografik dan kuiz.</span></li>
+    <li><i>4</i><span><b>Kapsyen, muzik dan bunyi automatik</b>Muzik dan kesan bunyi dijana kod, tiada lagu orang lain.</span></li>
+    <li><i>5</i><span><b>Pakej pra-produksi</b>Skrip, storyboard dan teks suara siap untuk ElevenLabs.</span></li>
+   </ul></div>
  </div>
 </section>
 
-<section class="wrap sec fin"><div class="finb"><h2>Mula buat video pertama <em>hari ini</em></h2><p class="lead">RM39 sekali bayar. Ebook + skill, milik anda selama-lamanya.</p>
- <a class="btn" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">Dapatkan /animasi sekarang</a></div></section>
+<section class="wrap sec" id="harga">
+ <div class="c"><span class="kick">Harga</span><h2>Sekali bayar. <span class="g">Milik anda selama-lamanya.</span></h2></div>
+ <div class="pricewrap">
+  <div class="pb"><div class="pin">
+   <span class="rib">Ebook + Skill /animasi</span>
+   <div class="big"><small>RM</small>39</div><div class="was">Harga asal <s>RM69</s></div>
+   <div class="forever">Bayar sekali RM39,<br><em>guna sampai bila-bila.</em></div>
+   <ul class="checks"><li>Skill /animasi dengan 21 gaya</li><li>Ebook panduan 13 bab</li><li>Tiada yuran bulanan dari kami</li><li>Buat seberapa banyak video yang anda mahu</li><li>Video yang dihasilkan milik anda</li></ul>
+   <a class="btn" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">Beli sekarang · RM39 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   <p class="note">Fail dihantar ke email selepas bayaran berjaya.</p></div></div>
+  <div class="cost"><h3>Kos lain yang anda perlu</h3>
+   <table><tr><td>Claude Pro</td><td>USD 20 sebulan, bayar terus kepada Anthropic</td></tr>
+   <tr><td>ElevenLabs</td><td>Pelan percuma ada. Starter USD 6 sebulan untuk guna komersial</td></tr>
+   <tr><td>Muzik &amp; bunyi</td><td>Percuma, dijana kod dalam skill</td></tr>
+   <tr><td>Perisian edit</td><td>Tak perlu</td></tr></table>
+   <p class="note">Harga Claude dan ElevenLabs boleh berubah. Semak sebelum melanggan.</p></div>
+ </div>
+</section>
+
+<section class="wrap sec" id="faq">
+ <div class="c"><span class="kick">Soalan lazim</span><h2>Masih ada <span class="g">soalan?</span></h2></div>
+ <div class="faq">
+  <details open><summary>Betul ke bayar sekali sahaja?</summary><p>Ya. RM39 sekali untuk ebook dan skill /animasi, milik anda selama-lamanya. Tiada yuran bulanan dari kami. Langganan Claude Pro dan ElevenLabs dibayar terus kepada syarikat masing-masing.</p></details>
+  <details><summary>Saya perlu Claude Pro?</summary><p>Ebook ini guna Claude Pro. Pelan percuma boleh guna skill, tetapi render video makan banyak had penggunaan.</p></details>
+  <details><summary>Perlu kemahiran animasi atau edit video?</summary><p>Tak perlu. Anda cuma taip arahan dan jana suara. Claude buat skrip, animasi, kapsyen dan bunyi.</p></details>
+  <details><summary>Boleh guna suara sendiri?</summary><p>Boleh. Rakam satu fail untuk setiap baris dalam jadual suara dan namakan ikut nombor, atau guna ElevenLabs untuk suara Bahasa Melayu.</p></details>
+  <details><summary>Berapa lama satu video siap?</summary><p>Bergantung pada gaya. Gaya paling laju siap kurang dua minit; gaya 3D yang berat boleh ambil 10 hingga 25 minit.</p></details>
+  <details><summary>Boleh guna untuk bisnes dan monetize?</summary><p>Boleh. Lesen peribadi untuk seorang pengguna, dan video yang anda hasilkan milik anda. Untuk video berpendapatan, guna pelan berbayar ElevenLabs. Fail zip dan ebook tidak boleh dikongsi atau dijual semula.</p></details>
+  <details><summary>Boleh guna di telefon?</summary><p>Pasang skill sekali dari browser komputer. Lepas tu boleh buat video terus dari app Claude dalam telefon.</p></details>
+ </div>
+</section>
+
+<section class="fin"><div class="fps"><div class="fp fp0"><video class="" src="https://animasiclaude.xyz/v/g14.mp4" poster="https://animasiclaude.xyz/v/g14.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video></div><div class="fp fp1"><video class="" src="https://animasiclaude.xyz/v/g07.mp4" poster="https://animasiclaude.xyz/v/g07.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video></div><div class="fp fp2"><video class="" src="https://animasiclaude.xyz/v/g18.mp4" poster="https://animasiclaude.xyz/v/g18.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video></div><div class="fp fp3"><video class="" src="https://animasiclaude.xyz/v/g09.mp4" poster="https://animasiclaude.xyz/v/g09.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video></div><div class="fp fp4"><video class="" src="https://animasiclaude.xyz/v/g17.mp4" poster="https://animasiclaude.xyz/v/g17.jpg" muted loop playsinline autoplay preload="none" disablepictureinpicture></video></div></div><div class="wrap c fint">
+ <h2>Video pertama anda boleh siap <span class="g">hari ini.</span></h2><p class="lead">RM39 sekali bayar. Ebook + skill, milik anda selama-lamanya.</p>
+ <a class="btn xl" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">Dapatkan /animasi sekarang <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></section>
 
 <footer class="ft wrap"><p><b>/animasi</b> ialah produk bebas oleh Eiztech Hub. Ia tidak bergabung dengan, ditaja atau disokong oleh Anthropic atau ElevenLabs. Claude ialah tanda dagangan Anthropic. ElevenLabs ialah tanda dagangan pemiliknya.</p></footer>
-<a class="sticky" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">Beli /animasi · RM39</a>
-</div>
-<script>(function(){
-var root=document.getElementById('anm');if(!root)return;
-var vids=[].slice.call(root.querySelectorAll('video'));
-function play(v){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+<a class="sticky" href="https://toyyibpay.com/animasiclaude" target="_blank" rel="noopener">Beli /animasi · RM39 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div><script>(function(){
+var R=document.getElementById('anm');if(!R)return;
+var vids=[].slice.call(R.querySelectorAll('video'));
+function play(v){if(v.preload==='none')v.preload='auto';var p=v.play();if(p&&p.catch)p.catch(function(){})}
+function vis(v){var r=v.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth}
 if('IntersectionObserver' in window){
- var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(v.preload!=='auto')v.preload='auto';play(v)}else v.pause()})},{rootMargin:'200px'});
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?play(e.target):e.target.pause()})},{rootMargin:'250px 120px'});
  vids.forEach(function(v){io.observe(v)});
 }else vids.forEach(play);
-document.addEventListener('visibilitychange',function(){if(!document.hidden)vids.forEach(function(v){var r=v.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)play(v)})});
-['touchstart','click'].forEach(function(t){document.addEventListener(t,function(){vids.forEach(function(v){if(v.paused){var r=v.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)play(v)}})},{once:true,passive:true})});
-var fs=root.querySelectorAll('.f'),cs=root.querySelectorAll('.card');
-fs.forEach(function(b){b.addEventListener('click',function(){fs.forEach(function(x){x.classList.remove('on')});b.classList.add('on');var g=b.getAttribute('data-g');cs.forEach(function(c){c.classList.toggle('hide',g!=='all'&&c.getAttribute('data-g')!==g)})})});
+vids.forEach(function(v){if(vis(v))play(v)});
+function kick(){vids.forEach(function(v){if(v.paused&&vis(v))play(v)})}
+['touchstart','click','scroll'].forEach(function(t){addEventListener(t,kick,{once:true,passive:true})});
+document.addEventListener('visibilitychange',function(){if(!document.hidden)kick()});
+/* filters */
+var fs=R.querySelectorAll('.f'),cs=R.querySelectorAll('.vc');
+[].forEach.call(fs,function(b){b.addEventListener('click',function(){[].forEach.call(fs,function(x){x.classList.remove('on')});b.classList.add('on');var g=b.getAttribute('data-g');[].forEach.call(cs,function(c){var h=g!=='all'&&c.getAttribute('data-g')!==g;c.classList.toggle('hide',h);if(!h){c.style.animation='none';c.offsetHeight;c.style.animation=''}});setTimeout(kick,60)})});
+/* typewriter */
+var t=R.querySelector('.type');if(t&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+ var P=t.getAttribute('data-p').split('|'),i=0,j=P[0].length,del=true;
+ setTimeout(function step(){var s=P[i];
+  if(del){j--;t.textContent=s.slice(0,j);if(j<=0){del=false;i=(i+1)%P.length}setTimeout(step,22)}
+  else{var n=P[i];j++;t.textContent=n.slice(0,j);if(j>=n.length){del=true;setTimeout(step,2200)}else setTimeout(step,45)}
+ },2600);
+}
 })();
 </script>
